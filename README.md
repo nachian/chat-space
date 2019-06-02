@@ -13,7 +13,7 @@
 
 ## groupsテーブル
 
-|Colums|Type|Option|
+|Colums|Type|Options|
 |------|----|------|
 |name|string|null: false, index: true|
 
@@ -37,7 +37,7 @@
 
 ## groups_usersテーブル
 
-|Colums|Type|Option|
+|Colums|Type|Options|
 |------|----|------|
 |user|reference|null: false, foreign_key: true|
 |group|reference|null: false, foreign_key: true|
