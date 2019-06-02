@@ -42,6 +42,6 @@
 |user|reference|null: false, foreign_key: true|
 |group|reference|null: false, foreign_key: true|
 
-###Association
+### Association
 - belongs_to :user
 - belongs_to :group
