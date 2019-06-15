@@ -1,0 +1,172 @@
+
+.side-contents{
+    height: 100vh;
+    width: 300px;
+    float: left;
+    background-color: #2f3e51;
+    display: block;
+    &__user{
+        height: 100px;
+        background-color: #253141;
+        padding: 0 20px;
+        &__name{
+            font-size: 16px;
+            font-weight: bold;
+            color: $white_color;
+            text-align: left;
+            line-height: 100px;
+            display: inline;
+        }
+        &__btn{
+            color: $white_color;
+            float: right;
+            padding: 2px;
+            line-height: 100px;
+            }
+        }
+    &__group{
+        background-color: #2f3e51;
+        padding: 0 20px;
+        color:$white_color;
+        &__name{
+            font-size: 15px;
+            font-weight: bold;
+            padding: 20px 0 5px;
+
+        }
+        &__text{
+            font-size: 11px;
+            font-weight: bold;
+            padding-bottom: 40px;
+
+        }
+        
+    }
+}
+.contents{
+    height: 100vh;
+    width: calc(100vw - 300px);
+    background-color: $white_color2;
+    margin-left: 300px;
+    position: relative;
+
+    &__header{
+        height: 100px;
+        font-size: 20px;
+        background-color: $white_color2;
+        color: #333333;
+        border-bottom: solid 1px #eeeeee;
+        padding: 0 40px;
+        &__left{
+            float: left;
+            &__group{
+                font-size: 20px;
+                color: #333333;
+                padding: 35px 0 15px;
+                width: 200px;
+            }
+            &__member{
+                font-size: 12px;
+                color: #999999;
+                width: 180px;
+                
+            }
+        }
+        &__btn{
+            height: 40px;
+            width: 80px;
+            float: right;
+            text-align: center;
+            border: 1px solid $blue;
+            line-height: 40px;
+            margin-top: 28px;            
+            &__edit{
+                color: $blue;
+                text-decoration: none;
+                font-size: 16px;
+
+            }
+        }
+    }
+    &__messages{
+        padding: 46px 40px 0;
+        background-color: $white_color2;
+        &__box{
+            margin-bottom: 40px;        
+            &__name{
+                font-size: 16px;
+                font-weight: bold;
+                color: $string;
+                display: inline-block;
+            }
+            &__date{
+                font-size: 12px;
+                color: #999999;
+                display: inline-block;
+            }
+            &__text{
+                margin: 10px 0 40px;
+                font-size: 14px;
+                color: $string;
+            }
+        }    
+        
+    }
+    .form{
+        height: 90px;
+        width: 100%;
+        padding: 20px 50px 20px 40px;
+        background-color:#DDDDDD;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+
+
+            .form-box{
+                height: 50px;
+                width: 100%;
+                display: inline-flex;
+                &__text{
+                    height: 50px;
+                    width: 100%;
+                    background-color: $white_color2;
+                    font-size: 16px;
+                    color: $string;
+                    line-height: 50px;
+                    border-style: none;
+                    padding-left: 10px;
+                    display: inline-flex;
+                }
+
+                &__image{
+                    height: 50px;
+                    background-color: $white_color;
+                    padding-right: 10px;
+                    font-size: 1.3rem;
+                    cursor: pointer;
+                    display: inline-flex;
+                    & i{
+                        line-height: 50px;
+                    }
+                    &__file{
+                        display: none;
+
+                        }
+                }
+            }
+            .submit-btn{
+                height: 50px;
+                width: 100px;
+                color: $white_color;
+                background-color: #38AEF0;
+                border: none;
+                font-size: 16px;
+                padding: 0 30px;
+                margin-left: 15px;
+                float: right;
+            }
+    }
+}
+
+   

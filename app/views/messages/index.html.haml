@@ -1,0 +1,49 @@
+
+.side-contents
+  .side-contents__user
+    .side-contents__user__name
+      user1
+    =link_to "#" do ;
+      =fa_icon "cog", class:'side-contents__user__btn'
+      %span<>
+    =link_to "#" do ;
+      =fa_icon "edit", class:'side-contents__user__btn'
+      %span<>
+  .side-contents__group
+    .side-contents__group__name
+    サイゼジャパン
+    .side-contents__group__text
+      Hello!!!  
+
+.contents
+  .contents__header
+    .contents__header__left
+      .contents__header__left__group
+        サイゼジャパン
+      .contents__header__left__member
+        Member: user1 user2
+    .contents__header__btn
+      = link_to "Edit", "#", class: "contents__header__btn__edit" ;
+  .contents__messages 
+    .contents__messages__box
+      .contents__messages__box__name
+        user1
+      .contents__messages__box__date
+        2019/06/22(Sat) 21:00:00
+      .contents__messages__box__text
+        こんにちは！！
+      .contents__messages__box__name
+        user2
+      .contents__messages__box__date
+        2019/06/22(Sat) 21:00:10
+      .contents__messages__box__text
+        さようなら。
+  .form
+    .form-box
+      %input#message_content.form-box__text{name: "message", placeholder: "type a message", type: "text"}
+        %label.form-box__image{for: "message_image"}
+          %i.fa.fa-image
+            %input#message_image.form-box__image__file{name: "message[image]", type: "file"}
+    %input.submit-btn{type: "submit", name: "commit", value: "Send"}      
+    
+
