@@ -59,6 +59,7 @@
         padding: 0 40px;
         &__left{
             float: left;
+            height: 100px;
             &__group{
                 font-size: 20px;
                 color: #333333;
@@ -120,52 +121,55 @@
         box-sizing: border-box;
         position: absolute;
         bottom: 0;
-        display: flex;
+        // display: flex;
 
+        & form {
+            display: flex;
+        }
 
-            .form-box{
+            &__text{
                 height: 50px;
                 width: 100%;
-                display: inline-flex;
-                &__text{
-                    height: 50px;
-                    width: 100%;
-                    background-color: $white_color2;
-                    font-size: 16px;
-                    color: $string;
-                    line-height: 50px;
-                    border-style: none;
-                    padding-left: 10px;
-                    display: inline-flex;
-                }
-
-                &__image{
-                    height: 50px;
-                    background-color: $white_color;
-                    padding-right: 10px;
-                    font-size: 1.3rem;
-                    cursor: pointer;
-                    display: inline-flex;
-                    & i{
-                        line-height: 50px;
-                    }
-                    &__file{
-                        display: none;
-
-                        }
-                }
-            }
-            .submit-btn{
-                height: 50px;
-                width: 100px;
-                color: $white_color;
-                background-color: #38AEF0;
-                border: none;
+                background-color: $white_color2;
                 font-size: 16px;
-                padding: 0 30px;
-                margin-left: 15px;
-                float: right;
+                color: $string;
+                line-height: 50px;
+                border-style: none;
+                padding-left: 10px;
+                // display: inline-flex;
             }
+        
+        .form-box{
+            height: 50px;
+            // width: 100%;
+            display: flex;
+            &__image{
+                height: 50px;
+                background-color: $white_color;
+                padding-right: 10px;
+                font-size: 1.3rem;
+                cursor: pointer;
+                // display: inline-flex;
+
+                & i{
+                    line-height: 50px;
+                }
+                &__file{
+                    display: none;
+                }
+            }
+        }
+        .submit-btn{
+            height: 50px;
+            width: 100px;
+            color: $white_color;
+            background-color: #38AEF0;
+            border: none;
+            font-size: 16px;
+            padding: 0 30px;
+            margin-left: 15px;
+            float: right;
+        }
     }
 }
 
