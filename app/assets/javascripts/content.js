@@ -36,6 +36,7 @@ $(function(){
           $('#message_content').val('');
           $('.contents__messages').animate({scrollTop: $(".contents__messages")[0].scrollHeight}, 1500);
           $('.submit-btn').attr('disabled', false);
+          $('.submit-btn').removeAttr('data-disable-with')
         })
         .fail(function(){
             
