@@ -33,10 +33,12 @@ $(function(){
         .done(function(message){
           var html = buildPost(message);
           $('.contents__messages').append(html);
-          $('#message_content').val('')
+          $('#message_content').val('');
+          $('.contents__messages').animate({scrollTop: $(".contents__messages")[0].scrollHeight}, 1500);
         })
         .fail(function(){
+            
             alert('エラー');
-        })
-    })
-})
+        });
+    });
+});
