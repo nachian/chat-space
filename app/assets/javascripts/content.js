@@ -39,7 +39,7 @@ $(function(){
         })
         .fail(function(){
             
-            alert('エラー');
+            alert('メッセージが送信されませんでした。');
         });
     });
 });
