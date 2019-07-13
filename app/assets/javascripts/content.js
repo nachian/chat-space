@@ -1,4 +1,23 @@
 $(function(){
+    function buildPost(message){
+        var insertImage = '';
+    if (message.image) insertImage = `<img src="${message.image}">`;
+        var html = `<div class="contents__messages__box">
+                        <div class="contents__messages__box__name">
+                            ${message.name}
+                        </div>
+                        <div class="contents__messages__box__date">
+                            ${message.created_at}
+                        </div>
+                        <div class="contents__messages__box__lower">
+                        <p class="contents__messages__box__lower__content">
+                            ${message.body}
+                        </p>
+                            ${insertImage}  
+                        </div>
+                    </div>`
+        return html;
+    }
     $('#new_message').on('submit', function(e){
         e.preventDefault();
         var formData = new FormData(this);
@@ -12,9 +31,12 @@ $(function(){
             contentType: false
         })
         .done(function(message){
-            console.log(message);
+          var html = buildPost(message);
+          $('.contents__messages').append(html);
+          $('#message_content').val('')
         })
         .fail(function(){
+            alert('エラー');
         })
     })
 })
