@@ -1,6 +1,6 @@
 
 .side-contents{
-    height: 100vh;
+    height: 100%;
     width: 300px;
     float: left;
     background-color: #2f3e51;
@@ -93,9 +93,10 @@
         }
     }
     &__messages{
-        padding: 46px 40px 0;
+        padding: 46px 40px ;
         background-color: $white_color2;
-        width: calc(100vw - 300px);
+        height: calc(100vh - 100px - 90px);
+        overflow: auto;
         &__box{
             margin-bottom: 40px;        
             &__name{
