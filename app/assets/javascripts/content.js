@@ -1,6 +1,7 @@
 $(function(){
     function buildPost(message){
-    if (message.image) ? insertImage = '' :insertImage = `<img src="${message.image}">`;
+    message.image ? insertImage =`<img src='${message.image}'> </img>`:insertImage = ``;
+
         var html = `<div class="contents__messages__box">
                         <div class="contents__messages__box__name">
                             ${message.name}
@@ -32,7 +33,7 @@ $(function(){
         .done(function(message){
           var html = buildPost(message);
           $('.contents__messages').append(html);
-          $('#messge_content')[0].reset();
+          $('#new_message')[0].reset();
           $('.contents__messages').animate({scrollTop: $(".contents__messages")[0].scrollHeight}, 1500);
           $('.submit-btn').attr('disabled', false);
           $('.submit-btn').removeAttr('data-disable-with')
