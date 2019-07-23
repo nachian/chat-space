@@ -1,6 +1,8 @@
 $(function() {
     function buildPost(message){
-    message.image ? insertImage =`<img src='${message.image}'> </img>`:insertImage = ``;
+        var content = message.body ? `<p class="contents__messages__box__lower__content">${message.body}</p>` : "";
+        var img = message.image ? `<img src='${message.image}'>` : "";
+
         var html = `<div class="contents__messages__box" data-id="${message.id}">
                         <div class="contents__messages__box__name">
                             ${message.name}
@@ -9,10 +11,8 @@ $(function() {
                             ${message.created_at}
                         </div>
                         <div class="contents__messages__box__lower">
-                        <p class="contents__messages__box__lower__content">
-                            ${message.content}
-                        </p>
-                            ${insertImage}  
+                            ${content}
+                            ${img}  
                         </div>
                     </div>`
         return html;
@@ -33,41 +33,43 @@ $(function() {
         .done(function(message){
           var html = buildPost(message);
           $('.contents__messages').append(html);
-          $('.new_message')[0].reset();
-          $('.contents__messages').animate({scrollTop: $(".contents__messages")[0].scrollHeight}, 1500);
+          $('#new_message').get(0).reset();
+          $('.contents__messages').animate({scrollTop: $('.contents__messages')[0].scrollHeight}, 'fast');
           $('.submit-btn').attr('disabled', false);
           $('.submit-btn').removeAttr('data-disable-with')
         })
         .fail(function(){
             alert('メッセージが送信されませんでした。');
-        });
+        })
+        .always(function(){
+            $('.submit-btn').attr('disabled', false);
+        })
     });
 
-        var reloadMessages = function() {
-            if (window.location.pathname.match(/\/groups\/\d+\/messages/)){
-                console.log(window.location.pathname)
-                last_message_id = $('.contents__messages__box:last').data('id')
-                group_id = $('.contents__messages__box:last').data('group-id')
-                console.log(group_id)
-                $.ajax({
-                url: `/groups/${group_id}/api/messages`,
-                type: 'GET',
-                dataType: 'json',
-                data: { id: last_message_id }
+    var reloadMessages = function() {
+        var last_message_id = $('.contents__messages__box:last').data('id')
+        var group_id = $('.contents__messages').data('group-id')
+
+        if (window.location.pathname.match(/\/groups\/\d+\/messages/)){
+            $.ajax({
+            url: `/groups/${group_id}/api/messages`,
+            type: 'GET',
+            dataType: 'json',
+            data: { id: last_message_id }
+            })
+            .done(function(messages) {
+                var insertHTML = '';
+                messages.forEach(function (message){
+                    insertHTML = buildPost(message);          
                 })
-                .done(function(messages) {
-                    var insertHTML = '';
-                    messages.forEach(function (message){
-                        insertHTML = buildPost(message);
-                        $(".contents__messages").append(insertHTML);            
-                    })
-                    $('.contents__messages').animate({scrollTop: $('.contents__messages')[0].scrollHeight}, 'fast');
-                })
-                .fail(function() {
-                    alert('自動更新に失敗しました');
-                });
-            }
+                $(".contents__messages").append(insertHTML);  
+                $('.contents__messages').animate({scrollTop: $('.contents__messages')[0].scrollHeight}, 'fast');
+            })
+            .fail(function() {
+                alert('自動更新に失敗しました');
+            });
         }
-        setInterval(reloadMessages, 5000);
+    }
+    setInterval(reloadMessages, 10000);
     
 });

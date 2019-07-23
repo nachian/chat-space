@@ -10,11 +10,10 @@
           = user.name
     .contents__header__btn
       = link_to "Edit", edit_group_path(@group) , class: "contents__header__btn__edit" 
-  .contents__messages 
+  .contents__messages{'data-group-id':@group.id}
     = render @messages
-    
   .form
-    = form_for [@group, @message], format: 'json',class: "new_message" do |f|
+    = form_for [@group, @message], class: "new_message" do |f|
       = f.text_field :content, class: 'form__text', placeholder: "type a message"
       .form-box
         = f.label :image, class: "form-box__image" do
